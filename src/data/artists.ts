@@ -1,0 +1,92 @@
+export const artists = [
+  {
+    id: 1,
+    name: "Ariana Falco",
+    description: "Bajista Independiente.",
+    image: "https://i.postimg.cc/pV0j9ZbY/arianafalco.png",
+  },
+  {
+    id: 2,
+    name: "Carlos Hernán Carcacha (Carca)",
+    description: "Guitarrista, Solista.",
+    image: "https://i.postimg.cc/dQWC7BP2/carca.png",
+  },
+  {
+    id: 3,
+    name: "Brenda Martin",
+    description: "Bajista Eruca Sativa.",
+    image: "https://i.postimg.cc/NGNXy4q8/brendamartin.png",
+  },
+  {
+    id: 4,
+    name: "Richard Coleman",
+    description: "Guitarrista Independiente, SODA STEREO.",
+    image: "https://i.postimg.cc/T2kby9MS/richardcole.png",
+  },
+  {
+    id: 5,
+    name: "Florencia Ruiz",
+    description: "Guitarrista Independiente.",
+    image: "https://i.postimg.cc/Vs7tSRQ4/florruiz.png",
+  },
+  {
+    id: 6,
+    name: "Hugo Mendez",
+    description: "Guitarrista en Alejandro Lerner.",
+    image: "https://i.postimg.cc/v8Pn1zF0/hugomendez.png",
+  },
+  {
+    id: 7,
+    name: "Julieta Arbos",
+    description: "Guitarrista en Marina Fages.",
+    image: "https://i.postimg.cc/dQWC7BPH/juliarbos.png",
+  },
+  {
+    id: 8,
+    name: "Flavio Cianciarulo",
+    description: "Bajista en Los Fabulosos Cadillacs.",
+    image: "https://i.postimg.cc/DfCGWgk6/flaviociancia.png",
+  },
+  {
+    id: 9,
+    name: "Rosa Jules",
+    description: "Violinista y Guitarrista Independiente.",
+    image: "https://i.postimg.cc/BZhF8g9k/rosajules.png",
+  },
+  {
+    id: 10,
+    name: "Sebastian Coria",
+    description: "Guitarrista en Horcas.",
+    image: "https://i.postimg.cc/66HZ70xs/sebastiancoria.png",
+  },
+  {
+    id: 11,
+    name: "Tito Fargo",
+    description: "Interprete, Compositor y Productor.",
+    image: "https://i.postimg.cc/15fqDqsv/titofargo.png",
+  },
+  {
+    id: 12,
+    name: "Kubero Diaz",
+    description: "Guitarrista, Compositor.",
+    image: "https://i.postimg.cc/DfCGWgkp/kuberodiaz.png",
+  },
+  {
+    id: 13,
+    name: "Federico Ghazarossian",
+    description: "Bajista en Acorazados.",
+    image: "https://i.postimg.cc/bY6nGTcT/federicoghazarossian.png",
+  },
+  {
+    id: 14,
+    name: "Anuk Sforza",
+    description: "Guitarrista en MIRANDA.",
+    image: "https://i.postimg.cc/DfCGWgkP/anuksforza.png",
+  },
+  {
+    id: 15,
+    name: "Silvio Mathias Fer",
+    description: "Cantante, Bajista y Compositor.",
+    image: "https://i.postimg.cc/QxHTcTh0/silviomathiasfer.png",
+  },
+];

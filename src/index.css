@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-encode: "Encode sans", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  --color-orange: #ff5733;
+  --color-yellow: #fed501;
+  --color-fuxia: #c70039;
+  --color-lila: #900c3f;
+  --color-violet: #581845;
+}
+
+.title {
+  @apply text-5xl font-encode font-black leading-none;
+}
+
+.section-title {
+  @apply mb-16 text-2xl font-encode font-black uppercase border-b border-gray-300;
+}
+
+.subtitle {
+  @apply text-xl text-gray-500 font-light;
+}
+
+.text-title-white {
+  @apply font-bold text-xl text-white;
+}
+
+.text-title-black {
+  @apply font-bold text-xl text-black;
+}
+
+.text-content {
+  @apply font-light text-sm text-gray-500;
+}
+
+.section {
+  @apply w-[90%] max-w-450 mx-auto mb-16;
+}
+
+.nav-item {
+  @apply relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-yellow after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100 font-encode cursor-pointer;
+}
+
+.gallery {
+  @apply grid grid-cols-[repeat(auto-fill,minmax(100px,350px))] auto-rows-auto justify-center gap-10;
+}
