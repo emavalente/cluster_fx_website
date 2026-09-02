@@ -35,41 +35,81 @@ export default async function handler(_request: Request): Promise<Response> {
       },
     );
   }
+
   console.log("Llamando a Google Places...");
-  const response = await fetch(
-    `https://places.googleapis.com/v1/places/${placeId}`,
-    {
-      headers: {
-        "X-Goog-Api-Key": apiKey,
-        "X-Goog-FieldMask": "rating,userRatingCount,reviews",
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 10000);
+
+  try {
+    const response = await fetch(
+      `https://places.googleapis.com/v1/places/${placeId}`,
+      {
+        headers: {
+          "X-Goog-Api-Key": apiKey,
+          "X-Goog-FieldMask": "rating,userRatingCount,reviews",
+        },
+        signal: controller.signal,
       },
-    },
-  );
+    );
 
-  if (!response.ok) {
-    const error = await response.text();
+    clearTimeout(timeout);
 
-    console.error("Error de Google Places:", error);
+    if (!response.ok) {
+      const error = await response.text();
+
+      console.error("Error de Google Places:", error);
+
+      return new Response(
+        JSON.stringify({
+          error: "No se pudieron obtener las reseñas de Google",
+        }),
+        {
+          status: response.status,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+    }
+
+    const data = (await response.json()) as GooglePlaceResponse;
+
+    return new Response(JSON.stringify(data), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    clearTimeout(timeout);
+
+    console.error("Error al conectar con Google Places:", error);
+
+    if (error instanceof Error && error.name === "AbortError") {
+      return new Response(
+        JSON.stringify({
+          error: "Google Places no respondió dentro del tiempo esperado",
+        }),
+        {
+          status: 504,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+    }
 
     return new Response(
       JSON.stringify({
-        error: "No se pudieron obtener las reseñas de Google",
+        error: "No se pudo conectar con Google Places",
       }),
       {
-        status: response.status,
+        status: 500,
         headers: {
           "Content-Type": "application/json",
         },
       },
     );
   }
-
-  const data = (await response.json()) as GooglePlaceResponse;
-
-  return new Response(JSON.stringify(data), {
-    status: 200,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
 }
