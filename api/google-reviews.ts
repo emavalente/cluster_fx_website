@@ -1,3 +1,7 @@
+declare const process: {
+  env: Record<string, string | undefined>;
+};
+
 type GoogleReview = {
   name: string;
   relativePublishTimeDescription?: string;
